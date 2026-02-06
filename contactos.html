@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos - Picanha na Tábua</title>
+  <!-- Logo na aba -->
+  <link rel="icon" type="image/jpeg" href="imagens/logo-picanha.jpg">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      flex-direction: column; /* mobile first */
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #FF4C4C, #FFD700);
+      padding: 12px;
+    }
+    .navbar a {
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .navbar a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,140,0,0.9);
+    }
+
+    /* Header com logo */
+    header {
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 22px;
+      background: #222;
+      color: #FFD700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo-header {
+      height: 40px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    /* Contactos */
+    .contactos {
+      display: flex;
+      flex-direction: column; /* mobile first */
+      gap: 20px;
+      padding: 20px;
+    }
+    .contacto-form, .contacto-info {
+      background: #222;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 12px rgba(255,76,76,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contacto-form:hover, .contacto-info:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(255,140,0,0.9);
+    }
+    .contacto-form h3, .contacto-info h3 {
+      margin: 0 0 10px;
+      color: #FFD700;
+    }
+    .contacto-form input, .contacto-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+    }
+    .contacto-form button {
+      background: linear-gradient(135deg, #FF4C4C, #FFD700);
+      color: #111;
+      font-weight: bold;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contacto-form button:hover {
+      background: linear-gradient(135deg, #FFD700, #FF4C4C);
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255,140,0,0.9);
+    }
+
+    /* Botão flutuante logo */
+    .float-logo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    .float-logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255,215,0,0.8);
+      transition: transform 0.3s ease;
+    }
+    .float-logo img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Botão WhatsApp */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+    }
+    .whatsapp-btn a {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+      transition: all 0.3s ease;
+    }
+    .whatsapp-btn a:hover {
+      background: linear-gradient(135deg, #128C7E, #25D366);
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(255,140,0,0.9);
+    }
+
+    /* Desktop */
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .contactos {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .contacto-form, .contacto-info {
+        width: 48%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html">Início</a>
+    <a href="menu.html">Menu</a>
+    <a href="pedidos.html">Pedidos</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="contactos.html">Contactos</a>
+  </nav>
+
+  <!-- Header com logo -->
+  <header>
+    <a href="index.html">
+      <img src="imagens/logo-picanha.jpg" alt="Picanha na Tábua" class="logo-header">
+    </a>
+    <span>Contactos - Picanha na Tábua 📞</span>
+  </header>
+
+  <!-- Contactos -->
+  <section class="contactos">
+    <!-- Formulário -->
+    <div class="contacto-form">
+      <h3>Envie-nos uma mensagem</h3>
+      <form>
+        <input type="text" placeholder="Seu nome" required>
+        <input type="email" placeholder="Seu email" required>
+        <textarea rows="5" placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+
+    <!-- Informações -->
+    <div class="contacto-info">
+      <h3>Informações de contacto</h3>
+      <p>📍 Centralidade do Kilamba, Luanda – Angola</p>
+      <p>📞 +244 939 040 608</p>
+      <p>✉️ contacto@picanhanatabua.com</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." 
+              width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- Botão flutuante logo -->
+  <div class="float-logo">
+    <a href="contactos.html">
+      <img src="imagens/logo-picanha.jpg" alt="Picanha na Tábua">
+    </a>
+  </div>
+
+  <!-- Botão WhatsApp -->
+  <div class="whatsapp-btn">
+    <a href="https://wa.me/244939040608" target="_blank">💬 Fale comigo aqui</a>
+  </div>
+
+</body>
+</html>
