@@ -221,7 +221,7 @@
     <span>Menu - Picanha na Tábua 🔥</span>
   </header>
 
-  <!-- Filtro -->
+    <!-- Filtro -->
   <div class="filtro">
     <button onclick="filtrarCategoria('todas')" class="btn">Todas</button>
     <button onclick="filtrarCategoria('carnes')" class="btn">Carnes</button>
@@ -258,15 +258,16 @@
       <h3>Coca-Cola</h3>
       <div class="price">1.095,00 KZ</div>
       <button class="btn-add" onclick="adicionarCarrinho(this, 'Coca-Cola', 1095)">Adicionar</button>
-
-	<div class="product" data-categoria="cocktails">
-	<img src="imagens/sangria.jpg" alt="sangria">
-    <h3>Sangria Espumante e Frutos Vermelhos</h3>
-    <div class="price" data-preco="22000">22.000,00 KZ</div>
-    <button onclick="adicionarItem('c007','Sangria Espumante e Frutos Vermelhos',22000,'sug007')">Adicionar</button>
-    <div class="sugestao" id="sug007"></div>
-  </div>
     </div>
+	
+	<div class="product" data-categoria="Cocktails">
+      <img src="imagens/sangria.jpg" alt="Sangria">
+      <h3>Sangria</h3>
+      <div class="price">22.000,00 KZ</div>
+      <button class="btn-add" onclick="adicionarCarrinho(this, 'Sangria', 1096)">Adicionar</button>
+    </div>
+	
+	
   </section>
 
   <!-- Botão flutuante logo -->
@@ -322,4 +323,5 @@
 </body>
 
 </html>
+
 
