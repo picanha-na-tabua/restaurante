@@ -7,7 +7,7 @@
   <link rel="icon" type="image/jpeg" href="imagens/logo-picanha.jpg">
 
   <style>
-    body {
+body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: #111;
@@ -48,8 +48,8 @@ header {
   align-items: center;
 }
 .logo-header {
-  height: 40px;
-  margin-right: 10px;
+  height:120px;
+  margin-right: 15px;
   vertical-align: middle;
 }
 
@@ -88,20 +88,25 @@ header {
   width: 100%;           /* mobile ocupa toda a largura */
   max-width: 300px;      /* limite no desktop */
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* espaço entre imagem, título, preço e botão */
 }
 .product:hover {
   transform: scale(1.02);
   box-shadow: 0 0 25px rgba(255,140,0,0.9);
 }
 .product h3 {
-  margin: 10px 0 8px;
+  margin: 0;
   font-size: 18px;
   color: #FFD700;
+  text-align: center;
 }
 .price {
   font-weight: bold;
-  margin-bottom: 10px;
   color: #FF4C4C;
+  text-align: center;
 }
 .btn-add {
   background: linear-gradient(135deg, #FF4C4C, #FFD700);
@@ -110,7 +115,7 @@ header {
   border-radius: 8px;
   font-weight: bold;
   text-decoration: none;
-  display: block;
+  width: 100%;          /* botão ocupa largura do card */
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -122,7 +127,8 @@ header {
 .galeria img {
   width: 100%;
   aspect-ratio: 1 / 1;   /* mantém quadrado */
-  object-fit: cover;     /* ajusta sem distorcer */
+  object-fit: contain;   /* imagem completa sem cortar */
+  background-color: #000; /* fundo neutro para preencher espaço vazio */
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(255,76,76,0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -193,7 +199,6 @@ header {
     width: 300px; /* limite no desktop */
   }
 }
-
   </style>
 </head>
 <body>
@@ -212,14 +217,14 @@ header {
     <a href="index.html">
       <img src="imagens/logo-picanha.jpg" alt="Picanha na Tábua" class="logo-header">
     </a>
-    </header>
+  </header>
 
   <!-- Filtro -->
   <div class="filtro">
     <button onclick="filtrarCategoria('todas')" class="btn">Todas</button>
     <button onclick="filtrarCategoria('carnes')" class="btn">Carnes</button>
     <button onclick="filtrarCategoria('extras')" class="btn">Extras</button>
-	<button onclick="filtrarCategoria('cocktails')" class="btn">Cocktails</button>
+    <button onclick="filtrarCategoria('cocktails')" class="btn">Cocktails</button>
     <button onclick="filtrarCategoria('bebidas')" class="btn">Bebidas</button>
   </div>
 
@@ -246,21 +251,19 @@ header {
       <button class="btn-add" onclick="adicionarCarrinho(this, 'Batata Frita', 1450)">Adicionar</button>
     </div>
 
-    <div class="product" data-categoria="bebidas">
+       <div class="product" data-categoria="bebidas">
       <img src="imagens/coca.jpg" alt="Coca-Cola">
       <h3>Coca-Cola</h3>
       <div class="price">1.095,00 KZ</div>
       <button class="btn-add" onclick="adicionarCarrinho(this, 'Coca-Cola', 1095)">Adicionar</button>
     </div>
-	
-	<div class="product" data-categoria="cocktails">
+
+    <div class="product" data-categoria="cocktails">
       <img src="imagens/sangria.jpg" alt="Sangria">
       <h3>Sangria</h3>
       <div class="price">22.000,00 KZ</div>
-      <button class="btn-add" onclick="adicionarCarrinho(this, 'Sangria', 1096)">Adicionar</button>
+      <button class="btn-add" onclick="adicionarCarrinho(this, 'Sangria', 22000)">Adicionar</button>
     </div>
-	
-	
   </section>
 
   <!-- Botão flutuante logo -->
@@ -270,7 +273,7 @@ header {
     </a>
   </div>
   
-    <!-- Botão WhatsApp -->
+  <!-- Botão WhatsApp -->
   <div class="whatsapp-btn">
     <a href="https://wa.me/244939040608" target="_blank">💬 Fale comigo aqui</a>
   </div>
@@ -315,6 +318,3 @@ header {
 
 </body>
 </html>
-
-
-
