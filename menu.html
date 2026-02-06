@@ -8,196 +8,190 @@
 
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #111;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* Navbar */
-    .navbar {
-      display: flex;
-      flex-direction: column; /* mobile first */
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #FF4C4C, #FFD700);
-      padding: 12px;
-    }
-    .navbar a {
-      color: #111;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .navbar a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px rgba(255,140,0,0.9);
-    }
-
-    /* Header com logo */
-    header {
-      text-align: center;
-      padding: 20px;
-      font-weight: bold;
-      font-size: 22px;
-      background: #222;
-      color: #FFD700;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .logo-header {
-      height: 40px;
-      margin-right: 10px;
-      vertical-align: middle;
-    }
-
-    /* Filtro */
-    .filtro {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      padding: 15px;
-    }
-    .filtro .btn {
-      background: linear-gradient(135deg, #FF4C4C, #FFD700);
-      color: #111;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    /* Produtos */
-    .menu {
-      display: flex;
-      flex-direction: column; /* mobile first */
-      gap: 15px;
-      padding: 15px;
-    }
-    .product {
-      background: #222;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 0 12px rgba(255,76,76,0.6);
-    }
-    .product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 15px rgba(255,76,76,0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .product img:hover {
-      transform: scale(1.05); /* igual ao index */
-      box-shadow: 0 0 25px rgba(255,140,0,0.9); /* brilho igual ao index */
-    }
-    .product h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      color: #FFD700;
-    }
-    .price {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #FF4C4C;
-    }
-    .btn-add {
-      background: linear-gradient(135deg, #FF4C4C, #FFD700);
-      color: #111;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      display: block;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    /* Hover unificado para todos os botões */
-    .btn:hover,
-    .btn-add:hover,
-    .whatsapp-btn a:hover {
-      background: linear-gradient(135deg, #FFD700, #FF4C4C);
-      color: #fff;
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255,140,0,0.9);
-    }
-
-    /* Botão flutuante logo */
-    .float-logo {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-    }
-    .float-logo img {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      box-shadow: 0 0 15px rgba(255,215,0,0.8);
-      transition: transform 0.3s ease;
-    }
-    .float-logo img:hover {
-      transform: scale(1.1);
-    }
-
-    /* Botão WhatsApp */
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-    }
-    .whatsapp-btn a {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      color: #fff;
-      font-weight: bold;
-      padding: 12px 24px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
-      transition: all 0.3s ease;
-    }
-
-    /* Desktop */
-    @media (min-width: 768px) {
-      .navbar {
-        flex-direction: row;
-        justify-content: center;
-      }
-      .menu {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .product {
-        width: 300px;
-      }
-    }
-	
-	/* Imagens dos produtos com mesmo efeito da galeria */
-.product img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #111;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-.product img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255,140,0,0.9);
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-direction: column; /* mobile first */
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #FF4C4C, #FFD700);
+  padding: 12px;
+}
+.navbar a {
+  color: #111;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.navbar a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,140,0,0.9);
 }
 
-/* Opcional: card inteiro com brilho */
+/* Header com logo */
+header {
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 22px;
+  background: #222;
+  color: #FFD700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-header {
+  height: 40px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Filtro */
+.filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 15px;
+}
+.filtro .btn {
+  background: linear-gradient(135deg, #FF4C4C, #FFD700);
+  color: #111;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Produtos */
+.menu {
+  display: flex;
+  flex-direction: column; /* mobile first */
+  gap: 15px;
+  padding: 15px;
+}
 .product {
+  background: #222;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 12px rgba(255,76,76,0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;           /* mobile ocupa toda a largura */
+  max-width: 300px;      /* limite no desktop */
+  box-sizing: border-box;
 }
 .product:hover {
   transform: scale(1.02);
   box-shadow: 0 0 25px rgba(255,140,0,0.9);
+}
+.product h3 {
+  margin: 10px 0 8px;
+  font-size: 18px;
+  color: #FFD700;
+}
+.price {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #FF4C4C;
+}
+.btn-add {
+  background: linear-gradient(135deg, #FF4C4C, #FFD700);
+  color: #111;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Padrão institucional para imagens */
+.product img,
+.evento img,
+.galeria img {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* mantém quadrado */
+  object-fit: cover;     /* ajusta sem distorcer */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255,76,76,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product img:hover,
+.evento img:hover,
+.galeria img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,140,0,0.9);
+}
+
+/* Hover unificado para todos os botões */
+.btn:hover,
+.btn-add:hover,
+.whatsapp-btn a:hover {
+  background: linear-gradient(135deg, #FFD700, #FF4C4C);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,140,0,0.9);
+}
+
+/* Botão flutuante logo */
+.float-logo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+.float-logo img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255,215,0,0.8);
+  transition: transform 0.3s ease;
+}
+.float-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* Botão WhatsApp */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+.whatsapp-btn a {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+  transition: all 0.3s ease;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .product {
+    width: 300px; /* limite no desktop */
+  }
 }
 
   </style>
@@ -322,4 +316,5 @@
 
 </body>
 </html>
+
 
