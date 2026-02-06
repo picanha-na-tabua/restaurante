@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Picanha na Tábua</title>
+  <link rel="icon" type="image/jpeg" href="imagens/logo-picanha.jpg">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      flex-direction: column; /* mobile first */
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #FF4C4C, #FFD700);
+      padding: 12px;
+    }
+    .navbar a {
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .navbar a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,140,0,0.9);
+    }
+
+    /* Header com logo */
+    header {
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 22px;
+      background: #222;
+      color: #FFD700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo-header {
+      height: 40px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    /* Filtro */
+    .filtro {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 15px;
+    }
+    .filtro .btn {
+      background: linear-gradient(135deg, #FF4C4C, #FFD700);
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Produtos */
+    .menu {
+      display: flex;
+      flex-direction: column; /* mobile first */
+      gap: 15px;
+      padding: 15px;
+    }
+    .product {
+      background: #222;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 12px rgba(255,76,76,0.6);
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 15px rgba(255,76,76,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product img:hover {
+      transform: scale(1.05); /* igual ao index */
+      box-shadow: 0 0 25px rgba(255,140,0,0.9); /* brilho igual ao index */
+    }
+    .product h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #FFD700;
+    }
+    .price {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #FF4C4C;
+    }
+    .btn-add {
+      background: linear-gradient(135deg, #FF4C4C, #FFD700);
+      color: #111;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Hover unificado para todos os botões */
+    .btn:hover,
+    .btn-add:hover,
+    .whatsapp-btn a:hover {
+      background: linear-gradient(135deg, #FFD700, #FF4C4C);
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255,140,0,0.9);
+    }
+
+    /* Botão flutuante logo */
+    .float-logo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    .float-logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255,215,0,0.8);
+      transition: transform 0.3s ease;
+    }
+    .float-logo img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Botão WhatsApp */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+    }
+    .whatsapp-btn a {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    /* Desktop */
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .product {
+        width: 300px;
+      }
+    }
+	
+	/* Imagens dos produtos com mesmo efeito da galeria */
+.product img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,140,0,0.9);
+}
+
+/* Opcional: card inteiro com brilho */
+.product {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(255,140,0,0.9);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html">Início</a>
+    <a href="menu.html">Menu</a>
+    <a href="pedidos.html">Pedidos</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="contactos.html">Contactos</a>
+  </nav>
+
+  <!-- Header com logo -->
+  <header>
+    <a href="index.html">
+      <img src="imagens/logo-picanha.jpg" alt="Picanha na Tábua" class="logo-header">
+    </a>
+    <span>Menu - Picanha na Tábua 🔥</span>
+  </header>
+
+  <!-- Filtro -->
+  <div class="filtro">
+    <button onclick="filtrarCategoria('todas')" class="btn">Todas</button>
+    <button onclick="filtrarCategoria('carnes')" class="btn">Carnes</button>
+    <button onclick="filtrarCategoria('extras')" class="btn">Extras</button>
+    <button onclick="filtrarCategoria('bebidas')" class="btn">Bebidas</button>
+  </div>
+
+  <!-- Produtos -->
+  <section class="menu">
+    <div class="product" data-categoria="carnes">
+      <img src="imagens/picanha.jpg" alt="Picanha na Tábua">
+      <h3>Picanha na Tábua</h3>
+      <div class="price">13.500,00 KZ</div>
+      <button class="btn-add" onclick="adicionarCarrinho(this, 'Picanha na Tábua', 13500)">Adicionar</button>
+    </div>
+
+    <div class="product" data-categoria="extras">
+      <img src="imagens/arroz.jpg" alt="Arroz Branco">
+      <h3>Dose de Arroz</h3>
+      <div class="price">1.600,00 KZ</div>
+      <button class="btn-add" onclick="adicionarCarrinho(this, 'Dose de Arroz', 1600)">Adicionar</button>
+    </div>
+
+    <div class="product" data-categoria="extras">
+      <img src="imagens/batata.jpg" alt="Batata Frita">
+      <h3>Batata Frita</h3>
+      <div class="price">1.450,00 KZ</div>
+      <button class="btn-add" onclick="adicionarCarrinho(this, 'Batata Frita', 1450)">Adicionar</button>
+    </div>
+
+    <div class="product" data-categoria="bebidas">
+      <img src="imagens/coca.jpg" alt="Coca-Cola">
+      <h3>Coca-Cola</h3>
+      <div class="price">1.095,00 KZ</div>
+      <button class="btn-add" onclick="adicionarCarrinho(this, 'Coca-Cola', 1095)">Adicionar</button>
+    </div>
+  </section>
+
+  <!-- Botão flutuante logo -->
+  <div class="float-logo">
+    <a href="menu.html">
+      <img src="imagens/logo-picanha.jpg" alt="Picanha na Tábua">
+    </a>
+  </div>
+  
+    <!-- Botão WhatsApp -->
+  <div class="whatsapp-btn">
+    <a href="https://wa.me/244939040608" target="_blank">💬 Fale comigo aqui</a>
+  </div>
+
+  <!-- Script filtro e carrinho -->
+  <script>
+    function filtrarCategoria(categoria) {
+      const produtos = document.querySelectorAll('.product');
+      produtos.forEach(produto => {
+        if (categoria === 'todas' || produto.dataset.categoria === categoria) {
+          produto.style.display = 'block';
+        } else {
+          produto.style.display = 'none';
+        }
+      });
+    }
+
+    // Função para adicionar item ao carrinho
+    function adicionarCarrinho(botao, nome, preco) {
+      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+      let existente = carrinho.find(item => item.nome === nome);
+      if (existente) {
+        existente.quantidade += 1;
+      } else {
+        carrinho.push({ nome, preco, quantidade: 1 });
+      }
+
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+      // Feedback apenas no botão clicado
+      botao.textContent = "A preparar a tábua...";
+      botao.disabled = true;
+
+      // Volta ao texto original após 2 segundos
+      setTimeout(() => {
+        botao.textContent = "Adicionar";
+        botao.disabled = false;
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>

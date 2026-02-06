@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedidos - Picanha na Tábua</title>
+  <link rel="icon" type="image/jpeg" href="imagens/logo-picanha.jpg">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #fff;
+      overflow-x: hidden; /* sem scroll horizontal */
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      flex-direction: column; /* mobile first */
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #FF4C4C, #FFD700);
+      padding: 12px;
+    }
+    .navbar a {
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .navbar a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,140,0,0.9);
+    }
+
+    /* Header com logo */
+    header {
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 22px;
+      background: #222;
+      color: #FFD700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo-header {
+      height: 40px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    /* Carrinho */
+    .carrinho {
+      max-height: 350px;
+      overflow-y: auto;
+      padding: 15px;
+    }
+    .item {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 0.5fr; /* nome | preço | quantidade | remover */
+      align-items: center;
+      background: #1a1a1a;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 8px rgba(255,215,0,0.3);
+    }
+    .item h3 {
+      margin: 0;
+      font-size: 15px;
+      color: #FFD700;
+    }
+    .preco {
+      color: #FF4C4C;
+      font-weight: bold;
+      text-align: center;
+    }
+    .quantidade {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-menos, .btn-mais {
+      background: #FFD700;
+      color: #111;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-menos:hover, .btn-mais:hover {
+      background: #FF4C4C;
+      color: #fff;
+    }
+    .btn-remover {
+      background: #FF4C4C;
+      color: #fff;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-remover:hover {
+      background: #FFD700;
+      color: #111;
+    }
+
+    /* Total */
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #222;
+      padding: 12px 20px;
+      margin: 15px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #FFD700;
+      box-shadow: 0 0 12px rgba(255,215,0,0.5);
+    }
+    .total strong {
+      color: #FF4C4C;
+    }
+
+    /* Botão finalizar */
+    .finalizar {
+      text-align: center;
+      margin: 20px;
+    }
+    .finalizar a {
+      background: linear-gradient(135deg, #FF4C4C, #FFD700);
+      color: #111;
+      font-weight: bold;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(255,76,76,0.8);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .finalizar a:hover {
+      background: linear-gradient(135deg, #FFD700, #FF4C4C);
+      color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(255,140,0,1);
+    }
+
+    /* Botão flutuante logo */
+    .float-logo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    .float-logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255,215,0,0.8);
+      transition: transform 0.3s ease;
+    }
+    .float-logo img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Botão WhatsApp */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+    }
+    .whatsapp-btn a {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+      transition: all 0.3s ease;
+    }
+    .whatsapp-btn a:hover {
+      background: linear-gradient(135deg, #128C7E, #25D366);
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(255, 76, 76, 0.9);
+    }
+
+    /* Desktop */
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html">Início</a>
+    <a href="menu.html">Menu</a>
+    <a href="pedidos.html">Pedidos</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="contactos.html">Contactos</a>
+  </nav>
+
+  <!-- Header com logo -->
+  <header>
+  <a href="index.html">
+    <img src="imagens/logo-picanha.jpg" alt="Picanha na Tábua" class="logo-header">
+  </a>
+  <span>Pedidos - Picanha na Tábua 🔥</span>
+</header>
+
+  <!-- Carrinho -->
+  <section class="carrinho"></section>
+
+  <!-- Total -->
+  <div class="total">
+    <span>Total:</span>
+    <strong>0 KZ</strong>
+  </div>
+
+  <!-- Botão finalizar -->
+  <div class="finalizar">
+    <a href="#" onclick="finalizarPedido()">🔥 Pegue sua picanha</a>
+  </div>
+
+  <!-- Botão flutuante logo -->
+  <div class="float-logo">
+    <a href="menu.html">
+      <img src="imagens/logo-picanha.jpg" alt="Picanha na Tábua">
+    </a>
+  </div>
+
+  <!-- Botão WhatsApp -->
+  <div class="whatsapp-btn">
+    <a href="https://wa.me/244939040608" target="_blank">💬 Fale comigo aqui</a>
+  </div>
+
+  <!-- Script carrinho -->
+  <script>
+    function carregarCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      const container = document.querySelector(".carrinho");
+      container.innerHTML = "";
+
+      carrinho.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.classList.add("item");
+        div.innerHTML = `
+          <div class="col nome"><h3>${item.nome}</h3></div>
+          <div class="col preco">${item.preco.toLocaleString("pt-AO")} KZ</div>
+          <div class="col quantidade">
+            <button class="btn-menos" onclick="alterarQuantidade(${index}, -1)">-</button>
+            <span>${item.quantidade}</span>
+            <button class="btn-mais" onclick="alterarQuantidade(${index}, 1)">+</button>
+          </div>
+                   <div class="col remover">
+            <button class="btn-remover" onclick="removerItem(${index})">x</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+      atualizarTotal();
+    }
+
+    function alterarQuantidade(index, delta) {
+      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      carrinho[index].quantidade += delta;
+      if (carrinho[index].quantidade < 1) carrinho[index].quantidade = 1;
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      carregarCarrinho();
+    }
+
+    function removerItem(index) {
+      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      carrinho.splice(index, 1);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      carregarCarrinho();
+    }
+
+    function atualizarTotal() {
+      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      let total = carrinho.reduce((sum, item) => sum + item.preco * item.quantidade, 0);
+      document.querySelector(".total strong").textContent =
+        total.toLocaleString("pt-AO") + " KZ";
+    }
+
+    function finalizarPedido() {
+      localStorage.removeItem("carrinho"); // zera carrinho
+      window.location.href = "index.html"; // volta para index
+    }
+
+    document.addEventListener("DOMContentLoaded", carregarCarrinho);
+  </script>
+
+</body>
+</html>
