@@ -226,6 +226,7 @@
     <button onclick="filtrarCategoria('todas')" class="btn">Todas</button>
     <button onclick="filtrarCategoria('carnes')" class="btn">Carnes</button>
     <button onclick="filtrarCategoria('extras')" class="btn">Extras</button>
+	<button onclick="filtrarCategoria('cocktails')" class="btn">Cocktails</button>
     <button onclick="filtrarCategoria('bebidas')" class="btn">Bebidas</button>
   </div>
 
@@ -257,6 +258,14 @@
       <h3>Coca-Cola</h3>
       <div class="price">1.095,00 KZ</div>
       <button class="btn-add" onclick="adicionarCarrinho(this, 'Coca-Cola', 1095)">Adicionar</button>
+
+	<div class="product" data-categoria="cocktails">
+	<img src="imagens/sangria.jpg" alt="sangria">
+    <h3>Sangria Espumante e Frutos Vermelhos</h3>
+    <div class="price" data-preco="22000">22.000,00 KZ</div>
+    <button onclick="adicionarItem('c007','Sangria Espumante e Frutos Vermelhos',22000,'sug007')">Adicionar</button>
+    <div class="sugestao" id="sug007"></div>
+  </div>
     </div>
   </section>
 
@@ -313,3 +322,4 @@
 </body>
 
 </html>
+
