@@ -299,12 +299,34 @@
     }
 
     function finalizarPedido() {
-      localStorage.removeItem("carrinho"); // zera carrinho
-      window.location.href = "index.html"; // volta para index
-    }
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  if (carrinho.length === 0) {
+    alert("Seu carrinho está vazio!");
+    return;
+  }
 
+  // Monta mensagem com os itens
+  let mensagem = "🍖 Pedido - Picanha na Tábua:%0A";
+  carrinho.forEach(item => {
+    mensagem += `- ${item.nome} x${item.quantidade} = ${item.preco.toLocaleString("pt-AO")} KZ%0A`;
+  });
+
+  // Total
+  let total = carrinho.reduce((sum, item) => sum + item.preco * item.quantidade, 0);
+  mensagem += `%0ATotal: ${total.toLocaleString("pt-AO")} KZ`;
+
+  // Limpa carrinho
+  localStorage.removeItem("carrinho");
+
+  // Abre WhatsApp com mensagem
+  window.open(`https://wa.me/244939040608?text=${mensagem}`, "_blank");
+
+  // Redireciona para index
+  window.location.href = "index.html";
+}
     document.addEventListener("DOMContentLoaded", carregarCarrinho);
   </script>
 
 </body>
+
 </html>
